@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Your Best: My Personal Challenge!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px; /* Slightly wider for better chart visibility */
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px; /* Increased height for better visual */
+            max-height: 500px;
+            background-color: #ffffff; /* White background for chart area */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1rem; /* p-4 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 400px;
+            }
+        }
+        input[type="number"], input[type="text"] {
+            @apply p-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+        }
+        button {
+            @apply bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md shadow-md transition-colors;
+        }
+    </style>
+</head>
+<body class="font-open-sans bg-blue-50 text-gray-800 leading-relaxed py-8 px-4 sm:px-6 lg:px-8">
+
+    <main class="max-w-5xl mx-auto bg-white rounded-xl shadow-2xl p-8 mb-8">
+        <h2 class="text-4xl text-blue-700 mb-4 drop-shadow-lg text-center">
+            🏆 Beat Your Best: My Personal Challenge! 🚀
+        </h2>
+        <p class="text-lg text-gray-700 mb-6 text-center">
+            Ready to become a true superstar? Our "Beat Your Best" challenge is all about you! Forget about comparing yourself to others. This challenge helps you focus on becoming stronger, faster, and more skilled than you were before. It's about celebrating your own progress and seeing how amazing you can be!
+        </p>
+        <p class="text-lg text-gray-700 mb-8 text-center">
+            When you "Beat Your Best," you're proving to yourself that you can always learn and grow. It makes every activity a fun personal quest!
+        </p>
+
+        <section class="mb-10 p-6 bg-blue-50 rounded-lg shadow-inner border-l-4 border-orange-500">
+            <h3 class="text-2xl text-orange-600 mb-4">How "Beat Your Best" Works</h3>
+            <p class="text-lg text-gray-700 mb-4">It's super simple! For certain activities, you'll:</p>
+            <ol class="list-decimal list-inside space-y-2 text-lg text-gray-700">
+                <li>Set Your Starting Line: The very first time you try an activity, you'll record your "personal best" for that day. This is your starting line!</li>
+                <li>Practice & Play: Keep doing the activity, focusing on your form and having fun.</li>
+                <li>Challenge Yourself: The next time you do the activity, try to beat your own last score or time.</li>
+                <li>Celebrate Your Wins! 🎉 Every time you improve, even by a little bit, you've "Beat Your Best"! That's a huge win!</li>
+            </ol>
+            <p class="text-lg text-gray-700 mt-4">
+                This helps you stay focused and motivated because you're always trying to outdo yourself, not someone else.
+            </p>
+        </section>
+
+        <section class="mb-10 p-6 bg-green-50 rounded-lg shadow-inner border-l-4 border-blue-500">
+            <h3 class="text-2xl text-blue-600 mb-4">Examples of "Beat Your Best" Activities</h3>
+            <p class="text-lg text-gray-700 mb-4">Here are some ideas of how you can challenge yourself to "Beat Your Best":</p>
+            <ul class="list-disc list-inside space-y-4 text-lg text-gray-700">
+                <li>
+                    Jumping Jacks Jumper:
+                    <ul class="list-none ml-6 text-base text-gray-600">
+                        <li>Goal: Do as many jumping jacks as you can in 30 seconds.</li>
+                        <li>Tracking: Write down your number of jumping jacks each time you try.</li>
+                        <li>My Best: 25 jumping jacks in 30 seconds! Next time, I'll aim for 26!</li>
+                    </ul>
+                </li>
+                <li>
+                    Speed Skater:
+                    <ul class="list-none ml-6 text-base text-gray-600">
+                        <li>Goal: Run from one end of the gym/field to the other (e.g., 20 meters) as fast as you can.</li>
+                        <li>Tracking: Use a stopwatch to time yourself (or have an adult/friend time you).</li>
+                        <li>My Best: 5.2 seconds! Next time, I'll try for under 5 seconds!</li>
+                    </ul>
+                </li>
+                <li>
+                    Balance Boss:
+                    <ul class="list-none ml-6 text-base text-gray-600">
+                        <li>Goal: Stand on one leg (like a flamingo!) for as long as you can without wobbling.</li>
+                        <li>Tracking: Use a stopwatch to time how long you can hold your balance.</li>
+                        <li>My Best: 18 seconds on my right leg! Next time, I'll try for 20!</li>
+                    </ul>
+                </li>
+                <li>
+                    Hopping Helper:
+                    <ul class="list-none ml-6 text-base text-gray-600">
+                        <li>Goal: Hop on one foot for a set distance (e.g., 10 hops). How quickly can you do it?</li>
+                        <li>Tracking: Time how long it takes to complete the 10 hops.</li>
+                        <li>My Best: 7 seconds for 10 hops! Next time, I'll try for 6.5 seconds!</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="p-6 bg-yellow-50 rounded-lg shadow-inner border-l-4 border-purple-500">
+            <h3 class="text-2xl text-purple-600 mb-4">My "Beat Your Best" Progress Chart! ✨</h3>
+            <p class="text-lg text-gray-700 mb-6">
+                See how much you're improving over time! Choose an activity, enter your performance, and watch your progress!
+            </p>
+
+            <div class="mb-6 space-y-4 md:space-y-0 md:flex md:space-x-4 items-center justify-center">
+                <select id="activitySelect" class="p-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-open-sans text-base">
+                    <option value="Jumping Jacks">Jumping Jacks (30s)</option>
+                    <option value="Speed Run">Speed Run (20m)</option>
+                    <option value="Balance">Balance (sec)</option>
+                    <option value="Hopping">Hopping (10 Hops - sec)</option>
+                </select>
+                <input type="number" id="performanceInput" placeholder="Enter your performance" class="font-open-sans text-base">
+                <button onclick="addPerformance()">Add Performance</button>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+
+            <p class="text-lg text-gray-700 mt-6 text-center">
+                The chart above shows how you're growing stronger and faster with each try! Keep challenging yourself!
+            </p>
+        </section>
+    </main>
+
+    <script>
+        // Helper function for label wrapping (Chart.js)
+        function wrapLabel(label) {
+            if (typeof label !== 'string' || label.length <= 16) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + (currentLine === '' ? '' : ' ') + word).length <= 16) {
+                    currentLine += (currentLine === '' ? '' : ' ') + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            if (currentLine !== '') {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+
+        let performanceChart;
+        let chartData = {
+            'Jumping Jacks': { dates: [], performances: [] },
+            'Speed Run': { dates: [], performances: [] },
+            'Balance': { dates: [], performances: [] },
+            'Hopping': { dates: [], performances: [] }
+        };
+
+        // Function to save data to local storage
+        function saveData() {
+            localStorage.setItem('beatYourBestData', JSON.stringify(chartData));
+        }
+
+        // Function to load data from local storage
+        function loadData() {
+            const savedData = localStorage.getItem('beatYourBestData');
+            if (savedData) {
+                chartData = JSON.parse(savedData);
+            } else {
+                // Initialize chart with some example data if no saved data exists
+                const today = new Date();
+                const dates = [];
+                for (let i = 4; i >= 0; i--) {
+                    const d = new Date(today);
+                    d.setDate(today.getDate() - i);
+                    dates.push(`${d.getMonth() + 1}/${d.getDate()}`);
+                }
+                chartData['Jumping Jacks'] = { dates: dates, performances: [20, 22, 25, 24, 27] };
+                chartData['Speed Run'] = { dates: dates, performances: [8.5, 7.9, 7.5, 7.8, 7.2] };
+                chartData['Balance'] = { dates: dates, performances: [10, 15, 18, 17, 20] };
+                chartData['Hopping'] = { dates: dates, performances: [10, 9.5, 9.0, 9.2, 8.5] };
+            }
+        }
+
+
+        function createOrUpdateChart(activity) {
+            if (performanceChart) {
+                performanceChart.destroy(); // Destroy previous chart instance
+            }
+
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            const data = chartData[activity];
+
+            // Define colors based on the activity for better distinction
+            let lineColor, pointColor, backgroundColor;
+            if (activity === 'Jumping Jacks' || activity === 'Balance') { // Higher is better
+                lineColor = '#2196F3'; // Blue
+                pointColor = '#1976D2';
+                backgroundColor = 'rgba(33, 150, 243, 0.2)';
+            } else { // Lower is better (Speed Run, Hopping)
+                lineColor = '#4CAF50'; // Green
+                pointColor = '#388E3C';
+                backgroundColor = 'rgba(76, 175, 80, 0.2)';
+            }
+
+            performanceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.dates,
+                    datasets: [{
+                        label: `${activity} Performance`,
+                        data: data.performances,
+                        borderColor: lineColor,
+                        backgroundColor: backgroundColor,
+                        tension: 0.3,
+                        pointRadius: 5,
+                        pointBackgroundColor: pointColor,
+                        pointBorderColor: '#fff',
+                        pointHoverRadius: 7,
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: lineColor,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date',
+                                font: { size: 16, family: 'Open Sans' },
+                                color: '#555'
+                            },
+                            ticks: {
+                                font: { family: 'Open Sans' },
+                                color: '#777'
+                            }
+                        },
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'Performance',
+                                font: { size: 16, family: 'Open Sans' },
+                                color: '#555'
+                            },
+                            ticks: {
+                                font: { family: 'Open Sans' },
+                                color: '#777'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // We only have one dataset per chart
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    if (Array.isArray(label)) {
+                                        return label.join(' ');
+                                    } else {
+                                        return label;
+                                    }
+                                },
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        // Add unit based on activity type
+                                        let unit = '';
+                                        if (activity === 'Jumping Jacks' || activity === 'Balance') {
+                                            unit = (activity === 'Balance' ? ' seconds' : ' reps');
+                                        } else if (activity === 'Speed Run' || activity === 'Hopping') {
+                                            unit = ' seconds';
+                                        }
+                                        label += context.parsed.y + unit;
+                                    }
+                                    return label;
+                                }
+                            },
+                            titleFont: { size: 16, family: 'Open Sans' },
+                            bodyFont: { size: 14, family: 'Open Sans' }
+                        },
+                        title: {
+                            display: true,
+                            text: `${activity} Progress`,
+                            font: {
+                                size: 20,
+                                family: 'Open Sans',
+                                weight: 'bold'
+                            },
+                            color: '#333333'
+                        }
+                    }
+                }
+            });
+        }
+
+        function addPerformance() {
+            const activitySelect = document.getElementById('activitySelect');
+            const performanceInput = document.getElementById('performanceInput');
+
+            const selectedActivity = activitySelect.value;
+            const performanceValue = parseFloat(performanceInput.value);
+
+            if (isNaN(performanceValue) || performanceInput.value === '') {
+                // Instead of alert, provide visual feedback
+                performanceInput.style.borderColor = 'red';
+                performanceInput.placeholder = 'Enter a valid number!';
+                return;
+            } else {
+                performanceInput.style.borderColor = ''; // Reset border
+                performanceInput.placeholder = 'Enter your performance'; // Reset placeholder
+            }
+
+
+            const today = new Date();
+            const dateString = `${today.getMonth() + 1}/${today.getDate()}`; // M/D format
+
+            // Add new data
+            chartData[selectedActivity].dates.push(dateString);
+            chartData[selectedActivity].performances.push(performanceValue);
+
+            // Keep only the last 7 entries for a cleaner chart (optional)
+            const MAX_ENTRIES = 7;
+            if (chartData[selectedActivity].dates.length > MAX_ENTRIES) {
+                chartData[selectedActivity].dates.shift();
+                chartData[selectedActivity].performances.shift();
+            }
+
+            saveData(); // Save data after every addition
+            createOrUpdateChart(selectedActivity); // Update chart
+
+            performanceInput.value = ''; // Clear input
+        }
+
+        // Initial chart load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData(); // Load data when the page loads
+            const initialActivity = document.getElementById('activitySelect').value;
+            createOrUpdateChart(initialActivity);
+
+            document.getElementById('activitySelect').addEventListener('change', (event) => {
+                createOrUpdateChart(event.target.value);
+            });
+        });
